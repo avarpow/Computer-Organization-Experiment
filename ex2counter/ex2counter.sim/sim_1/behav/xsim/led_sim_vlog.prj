@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ex2counter.srcs/sources_1/new/clock_div.v" \
+"../../../../ex2counter.srcs/sources_1/new/counter8.v" \
+"../../../../ex2counter.srcs/sources_1/new/decoder38.v" \
+"../../../../ex2counter.srcs/sources_1/new/led_8lights.v" \
+"../../../../ex2counter.srcs/sim_1/new/led_sim.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

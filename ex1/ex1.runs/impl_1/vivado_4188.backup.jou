@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Fri Sep 11 15:57:44 2020
+# Process ID: 4188
+# Current directory: G:/computer_structure_experiment/ex1/ex1.runs/impl_1
+# Command line: vivado.exe -log ex1.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source ex1.tcl -notrace
+# Log file: G:/computer_structure_experiment/ex1/ex1.runs/impl_1/ex1.vdi
+# Journal file: G:/computer_structure_experiment/ex1/ex1.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source ex1.tcl -notrace

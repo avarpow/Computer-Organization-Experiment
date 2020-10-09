@@ -36,4 +36,5 @@ module led_8lights(
         .Enable(reset),
         .Y0(Y0), .Y1(Y1), .Y2(Y2), .Y3(Y3), 
         .Y4(Y4), .Y5(Y5), .Y6(Y6), .Y7(Y7)
-); endmodule
+); 
+endmodule

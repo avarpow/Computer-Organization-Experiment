@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ex8alu.ip_user_files/bd/diaplay/ipshared/c2c4/display.v" \
+"../../../../ex8alu.ip_user_files/bd/diaplay/ip/diaplay_display_0_0/sim/diaplay_display_0_0.v" \
+"../../../../ex8alu.ip_user_files/bd/diaplay/sim/diaplay.v" \
+"../../../../ex8alu.srcs/sources_1/new/alu.v" \
+"../../../../ex8alu.srcs/sources_1/new/top.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

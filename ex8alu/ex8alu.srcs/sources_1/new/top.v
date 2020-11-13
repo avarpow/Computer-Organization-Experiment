@@ -1,18 +1,22 @@
 `timescale 1ns / 1ps
 module top( 
+input [3:0]aluCtr,
+input [8:0] _input2, 
 input clk, 
-input reset, //复位信号（连接一个按键）
 output [6:0] seg,//段码
 output [3:0] sm_wei//哪个数码管
 );
 // ALU信号线
 wire [15:0]input1;
 wire [15:0] input2;
+assign input1=16'h0x0007;
+assign input2[15:8]={8{_input2[8]}};
+assign input2[7:0]=_input2[7:0]; 
 wire zero; 
 wire[15:0] aluRes; 
 //wire[15:0] expand;
 // ALU控制信号线
-wire[3:0] aluCtr; 
+//wire[3:0] aluCtr; 
 // 实例化ALU模块
 alu alu0(.input1(input1), 
 .input2(input2), 

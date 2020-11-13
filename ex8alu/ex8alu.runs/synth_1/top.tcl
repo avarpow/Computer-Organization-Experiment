@@ -17,7 +17,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
+set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -34,6 +35,7 @@ set_property ip_output_repo d:/programme/Computer-Organization-Experiment/ex8alu
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
   D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/alu.v
+  D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/hdl/diaplay_wrapper.v
   D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/top.v
 }
 add_files D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/diaplay.bd
@@ -47,6 +49,9 @@ set_property used_in_implementation false [get_files -all D:/programme/Computer-
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/constrs_1/new/alu16.xdc
+set_property used_in_implementation false [get_files D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/constrs_1/new/alu16.xdc]
+
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1

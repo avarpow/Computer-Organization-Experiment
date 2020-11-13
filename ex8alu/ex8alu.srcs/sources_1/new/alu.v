@@ -6,7 +6,6 @@ input [3:0] aluCtr,
 output reg[15:0] aluRes, 
 output reg zero 
 ); 
-
 always @(input1 or input2 or aluCtr) // 运算数或控制码变化时操作
 begin 
 case(aluCtr) 
@@ -29,7 +28,9 @@ aluRes = ~(input1 | input2);
 4'b0111: // 小于设置
 begin 
 if(input1<input2) 
-aluRes = 1; 
+aluRes = 1;
+else
+aluRes = 0; 
 end 
 default: 
 aluRes = 0; 

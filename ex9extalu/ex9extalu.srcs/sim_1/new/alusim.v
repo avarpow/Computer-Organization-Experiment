@@ -24,10 +24,9 @@ module alusim;
 // Inputs
 reg [31:0] input2;
 reg [3:0] aluCtr;
-reg [15:0] inst; // ÊäÈë16 Î»
+reg [15:0] inst; // ï¿½ï¿½ï¿½ï¿½16 Î»
 // Outputs
 wire [31:0] aluRes;
-wire zero;
 wire ZF,CF,OF,SF,PF;
 // Instantiate the Unit Under Test (UUT)
 alu uut (
@@ -42,13 +41,18 @@ alu uut (
 .PF(PF)
 );
 initial begin
+    $dumpfile("simalu.vcd");
+    $dumpvars;
 // Initialize Inputs
+    $timeformat(-9, 0, " ns");
+    $monitor ("%0t aluCtr=%4b inst=%16b input2=%32b aluRes=%32b ZF=%1b CF=%1b OF=%1b SF=%1b PF=%1b",
+    $time, aluCtr,inst,input2,aluRes,ZF,CF,OF,SF,PF);
     input2 = 32'hfffffff8;
-    aluCtr = 4'b0110;//¼õ
-    inst=16'b0000_0000_0000_0001; //·ûºÅÀ©Õ¹µÄÊäÈë
+    aluCtr = 4'b0110;//ï¿½ï¿½
+    inst=16'b0000_0000_0000_0001; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     #100;
     input2 = 1;
-    aluCtr = 4'b0110;//¼Ó
+    aluCtr = 4'b0110;//ï¿½ï¿½
     inst=16'b1000_0000_0000_0001;
     #100
     input2 = 1;

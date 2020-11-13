@@ -58,23 +58,43 @@ extern void execute_16(char*, char *);
 extern void execute_17(char*, char *);
 extern void execute_18(char*, char *);
 extern void execute_19(char*, char *);
+extern void execute_20(char*, char *);
 extern void execute_3(char*, char *);
 extern void execute_10(char*, char *);
 extern void execute_7(char*, char *);
 extern void execute_8(char*, char *);
 extern void execute_9(char*, char *);
-extern void execute_20(char*, char *);
 extern void execute_21(char*, char *);
 extern void execute_22(char*, char *);
 extern void execute_23(char*, char *);
 extern void execute_24(char*, char *);
+extern void execute_25(char*, char *);
+extern void transaction_3(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_4(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_5(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_6(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_7(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_8(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_9(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_10(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_11(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_18(char*, char*, unsigned, unsigned, unsigned);
 extern void vlog_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
-funcp funcTab[21] = {(funcp)execute_5, (funcp)execute_11, (funcp)execute_12, (funcp)execute_13, (funcp)execute_14, (funcp)execute_15, (funcp)execute_16, (funcp)execute_17, (funcp)execute_18, (funcp)execute_19, (funcp)execute_3, (funcp)execute_10, (funcp)execute_7, (funcp)execute_8, (funcp)execute_9, (funcp)execute_20, (funcp)execute_21, (funcp)execute_22, (funcp)execute_23, (funcp)execute_24, (funcp)vlog_transfunc_eventcallback};
-const int NumRelocateId= 21;
+extern void transaction_0(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_1(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_2(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_12(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_13(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_14(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_15(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_16(char*, char*, unsigned, unsigned, unsigned);
+extern void transaction_17(char*, char*, unsigned, unsigned, unsigned);
+funcp funcTab[41] = {(funcp)execute_5, (funcp)execute_11, (funcp)execute_12, (funcp)execute_13, (funcp)execute_14, (funcp)execute_15, (funcp)execute_16, (funcp)execute_17, (funcp)execute_18, (funcp)execute_19, (funcp)execute_20, (funcp)execute_3, (funcp)execute_10, (funcp)execute_7, (funcp)execute_8, (funcp)execute_9, (funcp)execute_21, (funcp)execute_22, (funcp)execute_23, (funcp)execute_24, (funcp)execute_25, (funcp)transaction_3, (funcp)transaction_4, (funcp)transaction_5, (funcp)transaction_6, (funcp)transaction_7, (funcp)transaction_8, (funcp)transaction_9, (funcp)transaction_10, (funcp)transaction_11, (funcp)transaction_18, (funcp)vlog_transfunc_eventcallback, (funcp)transaction_0, (funcp)transaction_1, (funcp)transaction_2, (funcp)transaction_12, (funcp)transaction_13, (funcp)transaction_14, (funcp)transaction_15, (funcp)transaction_16, (funcp)transaction_17};
+const int NumRelocateId= 41;
 
 void relocate(char *dp)
 {
-	iki_relocate(dp, "xsim.dir/alusim_behav/xsim.reloc",  (void **)funcTab, 21);
+	iki_relocate(dp, "xsim.dir/alusim_behav/xsim.reloc",  (void **)funcTab, 41);
 
 	/*Populate the transaction function pointer field in the whole net structure */
 }

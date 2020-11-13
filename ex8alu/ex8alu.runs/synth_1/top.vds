@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Tue Oct 27 20:03:08 2020
-# Process ID: 12684
+# Start of session at: Mon Nov  2 21:36:22 2020
+# Process ID: 23556
 # Current directory: D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.runs/synth_1/top.vds
@@ -19,24 +19,23 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 2584 
+INFO: Helper process launched with PID 26408 
+WARNING: [Synth 8-2292] literal value truncated to fit in 16 bits [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/top.v:12]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 844.613 ; gain = 234.789
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 849.324 ; gain = 238.719
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/top.v:2]
 INFO: [Synth 8-6157] synthesizing module 'alu' [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/alu.v:2]
 INFO: [Synth 8-6155] done synthesizing module 'alu' (1#1) [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/alu.v:2]
+INFO: [Synth 8-6157] synthesizing module 'diaplay_wrapper' [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/hdl/diaplay_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'diaplay' [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/synth/diaplay.v:13]
-INFO: [Synth 8-6157] synthesizing module 'diaplay_display_0_0' [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.runs/synth_1/.Xil/Vivado-12684-DESKTOP-CCVBI4S/realtime/diaplay_display_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'diaplay_display_0_0' (2#1) [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.runs/synth_1/.Xil/Vivado-12684-DESKTOP-CCVBI4S/realtime/diaplay_display_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'diaplay_display_0_0' [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.runs/synth_1/.Xil/Vivado-23556-DESKTOP-CCVBI4S/realtime/diaplay_display_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'diaplay_display_0_0' (2#1) [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.runs/synth_1/.Xil/Vivado-23556-DESKTOP-CCVBI4S/realtime/diaplay_display_0_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'diaplay' (3#1) [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/synth/diaplay.v:13]
-WARNING: [Synth 8-3848] Net input1 in module/entity top does not have driver. [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/top.v:9]
-WARNING: [Synth 8-3848] Net input2 in module/entity top does not have driver. [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/top.v:10]
-WARNING: [Synth 8-3848] Net aluCtr in module/entity top does not have driver. [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/top.v:15]
-INFO: [Synth 8-6155] done synthesizing module 'top' (4#1) [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/top.v:2]
-WARNING: [Synth 8-3331] design top has unconnected port reset
+INFO: [Synth 8-6155] done synthesizing module 'diaplay_wrapper' (4#1) [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/hdl/diaplay_wrapper.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'top' (5#1) [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/top.v:2]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 917.574 ; gain = 307.750
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 895.598 ; gain = 284.992
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -49,49 +48,52 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 917.574 ; gain = 307.750
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 895.598 ; gain = 284.992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 917.574 ; gain = 307.750
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 895.598 ; gain = 284.992
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 917.574 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 895.598 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [d:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/ip/diaplay_display_0_0/diaplay_display_0_0/diaplay_display_0_0_in_context.xdc] for cell 'disp1/display_0'
-Finished Parsing XDC File [d:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/ip/diaplay_display_0_0/diaplay_display_0_0/diaplay_display_0_0_in_context.xdc] for cell 'disp1/display_0'
+Parsing XDC File [d:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/ip/diaplay_display_0_0/diaplay_display_0_0/diaplay_display_0_0_in_context.xdc] for cell 'disp1/diaplay_i/display_0'
+Finished Parsing XDC File [d:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/bd/diaplay/ip/diaplay_display_0_0/diaplay_display_0_0/diaplay_display_0_0_in_context.xdc] for cell 'disp1/diaplay_i/display_0'
+Parsing XDC File [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/constrs_1/new/alu16.xdc]
+Finished Parsing XDC File [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/constrs_1/new/alu16.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/constrs_1/new/alu16.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 969.895 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 964.551 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 969.895 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 964.551 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 969.895 ; gain = 360.070
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 964.551 ; gain = 353.945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 969.895 ; gain = 360.070
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 964.551 ; gain = 353.945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for disp1. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for disp1/display_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for disp1/diaplay_i. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for disp1/diaplay_i/display_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 969.895 ; gain = 360.070
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 964.551 ; gain = 353.945
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-327] inferring latch for variable 'aluRes_reg' [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/alu.v:15]
-WARNING: [Synth 8-327] inferring latch for variable 'zero_reg' [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/alu.v:17]
+WARNING: [Synth 8-327] inferring latch for variable 'zero_reg' [D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.srcs/sources_1/new/alu.v:16]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 969.895 ; gain = 360.070
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 964.551 ; gain = 353.945
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -109,7 +111,7 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   7 Input     16 Bit        Muxes := 1     
 	   7 Input      3 Bit        Muxes := 1     
-	   7 Input      1 Bit        Muxes := 2     
+	   7 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -125,7 +127,7 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   7 Input     16 Bit        Muxes := 1     
 	   7 Input      3 Bit        Muxes := 1     
-	   7 Input      1 Bit        Muxes := 2     
+	   7 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -142,42 +144,9 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3331] design top has unconnected port reset
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\alu0/aluRes_reg[15] )
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[15]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[14]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[13]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[12]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[11]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[10]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[9]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[8]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[7]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[6]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[5]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[4]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[3]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[1]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (alu0/aluRes_reg[0]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (alu0/zero_reg) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 969.895 ; gain = 360.070
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 964.551 ; gain = 353.945
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -189,13 +158,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 993.324 ; gain = 383.500
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 991.707 ; gain = 381.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 993.324 ; gain = 383.500
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 991.707 ; gain = 381.102
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -207,7 +176,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1002.891 ; gain = 393.066
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1003.605 ; gain = 393.000
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -231,13 +200,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1018.711 ; gain = 408.887
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1019.398 ; gain = 408.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1018.711 ; gain = 408.887
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1019.398 ; gain = 408.793
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -256,25 +225,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1018.711 ; gain = 408.887
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1019.398 ; gain = 408.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1018.711 ; gain = 408.887
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1019.398 ; gain = 408.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1018.711 ; gain = 408.887
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1019.398 ; gain = 408.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1018.711 ; gain = 408.887
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1019.398 ; gain = 408.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -292,38 +261,43 @@ Report Cell Usage:
 |      |Cell                |Count |
 +------+--------------------+------+
 |1     |diaplay_display_0_0 |     1|
-|2     |IBUF                |     1|
-|3     |OBUF                |    11|
+|2     |LUT3                |     2|
+|3     |LUT4                |     4|
+|4     |LUT5                |     1|
+|5     |LUT6                |    16|
+|6     |IBUF                |    14|
+|7     |OBUF                |    11|
 +------+--------------------+------+
 
 Report Instance Areas: 
-+------+---------+--------+------+
-|      |Instance |Module  |Cells |
-+------+---------+--------+------+
-|1     |top      |        |    23|
-|2     |  disp1  |diaplay |    11|
-+------+---------+--------+------+
++------+--------------+----------------+------+
+|      |Instance      |Module          |Cells |
++------+--------------+----------------+------+
+|1     |top           |                |    59|
+|2     |  disp1       |diaplay_wrapper |    34|
+|3     |    diaplay_i |diaplay         |    11|
++------+--------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1018.711 ; gain = 408.887
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1019.398 ; gain = 408.793
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 20 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1018.711 ; gain = 356.566
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1018.711 ; gain = 408.887
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:33 . Memory (MB): peak = 1019.398 ; gain = 339.840
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 1019.398 ; gain = 408.793
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1018.711 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1019.398 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1029.855 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1022.699 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 24 Warnings, 0 Critical Warnings and 0 Errors encountered.
+23 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1029.855 ; gain = 692.016
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1029.855 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 1022.699 ; gain = 684.922
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1022.699 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/programme/Computer-Organization-Experiment/ex8alu/ex8alu.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 20:03:55 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 21:37:10 2020...

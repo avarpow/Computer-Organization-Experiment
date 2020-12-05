@@ -1,0 +1,23 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ex13singleCPU.srcs/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/PCctr.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/RegFile.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/alu.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/aluctr.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/aluinput2.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/ctr.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/dataToReg.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/display.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/dram.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/link.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/rom_top.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/signext.v" \
+"../../../../ex13singleCPU.srcs/sources_1/new/top.v" \
+"../../../../ex13singleCPU.srcs/sim_1/new/topsim.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

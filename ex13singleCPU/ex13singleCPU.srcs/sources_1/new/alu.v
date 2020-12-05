@@ -3,13 +3,13 @@ module alu(
            input [4:0] shamt,
            input [31:0] input1,
            input [31:0] input2,
-           input [5:0] aluCtr, 
-           output reg[31:0] aluRes, 
+           input [4:0] aluCtr, 
+           output reg [31:0] aluRes, 
            output reg ZF, //�?0则为1，否则为0
            output reg CF,OF,//溢出�?�?
            output reg PF,//正数�?1，负数为0
-           output reg hi,
-           output reg lo
+           output reg [31:0]hi,
+           output reg [31:0]lo
        );
 always @(input1 or input2 or aluCtr) // 运算数或控制码变化时操作
 begin
@@ -152,9 +152,9 @@ begin
         5'b01000: //  slt
         begin
             if($signed(input1) < $signed(input2)) 
-                ALURes = 1;
+                aluRes = 1;
             else 
-                ALURes = 0;
+                aluRes = 0;
             if(aluRes==0) 
                 ZF=1; 
             else 
@@ -170,9 +170,9 @@ begin
         5'b01001: //  sltu
         begin
             if(input1 < input2) 
-                ALURes = 1;
+                aluRes = 1;
             else 
-                ALURes = 0;
+                aluRes = 0;
             if(aluRes==0) 
                 ZF=1; 
             else 

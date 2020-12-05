@@ -37,7 +37,7 @@ always@(opCode) begin
     // 操作码改变时改变控制信号
     case(opCode)
         // 'R 型' 指令操作码
-        // 算术指令，syscall,mult,div,mufi,mulo,jr
+        // 算术指令，syscall,mult,div,mufi,mflo,jr
         6'b000000: begin
             regDst = 1;
             aluSrc = 0;
@@ -62,7 +62,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -76,9 +76,9 @@ always@(opCode) begin
                 mfhi=1;
                 regWrite=0;
             end
-            else if(funct==6'b011000)//mulo
+            else if(funct==6'b011000)//mflo
             begin
-                mulo=1;
+                mflo=1;
                 regWrite=0;
             end
             else if(funct==6'b001000)
@@ -124,7 +124,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -156,7 +156,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -190,7 +190,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -221,7 +221,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -252,7 +252,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -284,7 +284,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -316,7 +316,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -348,7 +348,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -380,7 +380,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -412,7 +412,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -444,7 +444,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -476,7 +476,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -508,7 +508,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -540,7 +540,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -572,7 +572,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -604,7 +604,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -637,7 +637,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -685,7 +685,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -717,7 +717,7 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
-            PCWrite=0;
+            PCWrite=1;
             syscall=0;
             noop=0;
             halt=0;
@@ -749,6 +749,38 @@ always@(opCode) begin
             div=0;
             mflo=0;
             mfhi=0;
+            PCWrite=1;
+            syscall=0;
+            noop=0;
+            halt=0;
+            storemux=opCode[1:0];
+        end 
+
+        //halt 操作码111111
+        6'b111111: begin
+            regDst = 0;
+            aluSrc = 0;
+            aluZeroinput = 0;
+            memToReg = 0;
+            regWrite = 0;
+            memRead = 0;
+            memWrite = 0;
+            ExtOp = 1;
+            aluop = 4'b0011;//减法
+            jmp =0;
+            jal=0;
+            jr=0;
+            bne=0;
+            beq=0;
+            bgez=0;
+            bgezal=0;
+            blez=0;
+            bltz=0;
+            bltzal=0;
+            mult=0;
+            div=0;
+            mflo=0;
+            mfhi=0;
             PCWrite=0;
             syscall=0;
             noop=0;
@@ -763,7 +795,6 @@ always@(opCode) begin
             regWrite = 0;
             memRead = 0;
             memWrite = 0;
-            branch = 0;
             aluop = 3'b0xxx;
             jmp = 0;
             ExtOp = 0;

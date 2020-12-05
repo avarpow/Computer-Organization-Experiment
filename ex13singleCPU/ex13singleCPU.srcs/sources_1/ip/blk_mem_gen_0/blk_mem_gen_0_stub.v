@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-// Date        : Sat Dec  5 19:05:12 2020
+// Date        : Sat Dec  5 22:14:08 2020
 // Host        : DESKTOP-CCVBI4S running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               D:/programme/Computer-Organization-Experiment/ex13singleCPU/ex13singleCPU.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_stub.v

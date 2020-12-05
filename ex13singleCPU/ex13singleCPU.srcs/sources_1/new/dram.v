@@ -1,10 +1,13 @@
 `timescale 1ns / 1ps
-module dram (input clk, memwrite,
-             input reset,
-             input [1:0] flag,//00-> byte 01->half word  1x->word
-             input [7:0] addr,
-             input [31:0] write_data,
-             output [31:0] read_data);
+module dram (
+    input clk, 
+    input memwrite,
+    input reset,
+    input [1:0] flag,//00-> byte 01->half word  1x->word
+    input [7:0] addr,
+    input [31:0] write_data,
+    output [31:0] read_data
+);
 
 reg [7:0] RAM[255:0];
 

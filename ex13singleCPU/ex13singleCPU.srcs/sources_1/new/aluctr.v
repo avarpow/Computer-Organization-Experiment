@@ -1,6 +1,8 @@
 `timescale 1ns / 1ps
 module aluctr(
-           input [3:0] ALUOp, input [5:0] funct, output reg [4:0]  ALUCtr
+        input [3:0] ALUOp,
+        input [5:0] funct, 
+        output reg [4:0] ALUCtr
        );
 
 always @(ALUOp or funct) //  如果操作码或者功能码变化执行操作

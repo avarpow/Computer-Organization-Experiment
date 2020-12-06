@@ -37,7 +37,7 @@ begin
             if(mfhi)//移动hi
                 REG_Files[W_Addr]=hi;
             else if(mflo)//移动lo
-                REG_Files[W_Addr]=hi;
+                REG_Files[W_Addr]=lo;
             else if(mult || div)begin//乘除法结果写入lo,hi寄存器
                 hi=W_data_hi;
                 lo=W_data_lo;    

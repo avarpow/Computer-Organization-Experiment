@@ -20,7 +20,7 @@ reg[7:0] Addr;
 wire reg_dst,memread, memwrite, memtoreg,alu_src,alu_zeroinput,ExtOp;
 wire[3:0] aluop;
 wire regwrite;
-wire jmp,jal,jr,bne,beq,bgez,bgezal,blez,bltz,bltzal;
+wire jmp,jal,jr,bne,beq,bgez,bgezal,bgtz,blez,bltz,bltzal;
 wire mult,div,mflo,mfhi,PCWrite,syscall,noop,halt;
 wire [1:0]storemux;
 // ALU øÿ÷∆–≈∫≈œﬂ
@@ -76,6 +76,7 @@ ctr mainctr(
         .beq(beq),
         .bgez(bgez),
         .bgezal(bgezal),
+        .bgtz(bgtz),
         .blez(blez),
         .bltz(bltz),
         .bltzal(bltzal),
@@ -127,6 +128,7 @@ PCctr PCctr1(
           .beq(beq),
           .bgez(bgez),
           .bgezal(bgezal),
+          .bgtz(bgtz),
           .blez(blez),
           .bltz(bltz),
           .bltzal(bltzal),

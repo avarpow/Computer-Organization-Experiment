@@ -17,8 +17,9 @@ module ctr(
            output reg jr,//jr指令:从寄存器跳转
            output reg bne,//bne指令:不相等时跳转
            output reg beq,//beq指令:相等时跳转
-           output reg bgez,//bgtz指令:大于等于0时跳转
+           output reg bgez,//bgez指令:大于等于0时跳转
            output reg bgezal,//bgezal指令:大于等于0时跳转并且链接
+           output reg bgtz,//bgtz指令:大于0时跳转
            output reg blez,//blez指令:小于等于0时跳转
            output reg bltz,//bltz指令:小于0时跳转
            output reg bltzal,//bltzal指令:小于0时跳转并且链接
@@ -33,7 +34,7 @@ module ctr(
            output reg [1:0]storemux//00:字节,01半字,11全字,load指令和store指令的方式
        );
 
-always@(opCode) begin
+always@(opCode,funct,rt) begin
     // 操作码改变时改变控制信号
     case(opCode)
         // 'R 型' 指令操作码
@@ -55,6 +56,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -74,12 +76,10 @@ always@(opCode) begin
             else if(funct==6'b010000)//muhi
             begin
                 mfhi=1;
-                regWrite=0;
             end
-            else if(funct==6'b011000)//mflo
+            else if(funct==6'b010010)//mflo
             begin
                 mflo=1;
-                regWrite=0;
             end
             else if(funct==6'b001000)
             begin
@@ -116,6 +116,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -131,7 +132,7 @@ always@(opCode) begin
         end
 
         // 'jal' 指令操作码: 000011
-        6'b000010: begin
+        6'b000011: begin
             regDst = 0;
             aluSrc = 0;
             aluZeroinput = 0;
@@ -148,6 +149,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -182,6 +184,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -213,6 +216,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -244,6 +248,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -276,6 +281,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -308,6 +314,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -340,6 +347,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -372,6 +380,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -404,6 +413,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -436,6 +446,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -468,6 +479,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -500,6 +512,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -532,6 +545,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -564,6 +578,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -596,6 +611,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -629,6 +645,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -643,7 +660,7 @@ always@(opCode) begin
             storemux=opCode[1:0];
             if(rt == 5'b00000) 
                 begin //bltz
-                        bltz=1;
+                    bltz=1;
                 end
             else if(rt== 5'b00001) 
                 begin //bgez
@@ -677,6 +694,7 @@ always@(opCode) begin
             beq=1;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -709,6 +727,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;
@@ -741,7 +760,41 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=1;
+            bltz=0;
+            bltzal=0;
+            mult=0;
+            div=0;
+            mflo=0;
+            mfhi=0;
+            PCWrite=1;
+            syscall=0;
+            noop=0;
+            halt=0;
+            storemux=opCode[1:0];
+        end 
+
+        //bgtz 操作码000111
+        6'b000111: begin
+            regDst = 0;
+            aluSrc = 0;
+            aluZeroinput = 1;
+            memToReg = 0;
+            regWrite = 0;
+            memRead = 0;
+            memWrite = 0;
+            ExtOp = 1;
+            aluop = 4'b0011;//减法
+            jmp =0;
+            jal=0;
+            jr=0;
+            bne=0;
+            beq=0;
+            bgez=0;
+            bgezal=0;
+			bgtz=1;
+            blez=0;
             bltz=0;
             bltzal=0;
             mult=0;
@@ -773,6 +826,7 @@ always@(opCode) begin
             beq=0;
             bgez=0;
             bgezal=0;
+			bgtz=0;
             blez=0;
             bltz=0;
             bltzal=0;

@@ -15,6 +15,7 @@ module PCctr
     input beq,
     input bgez,
     input bgezal,
+    input bgez,
     input blez,
     input bltz,
     input bltzal,
@@ -31,7 +32,7 @@ assign jumpAddr={PC[31:28],target, {2{1'b0}}};//jump 地址target<<2
 assign branchAddr = CPCadd4+extimm;//branch跳转地址
 assign jrAddr=R_Data_A;
 assign muxjump=(jmp | jal)?jumpAddr:CPCadd4;
-assign muxbranch=((bne & (~ZF))|(beq & ZF)|((bgez|bgezal) & (PF | ZF)) | (blez & (~PF)) | ((bltz | bltzal) & (~PF & ~ZF)))?branchAddr:muxjump;
+assign muxbranch=((bne & (~ZF))|(beq & ZF)|((bgez|bgezal) & (PF | ZF)) | (blez & (~PF))| (bgez & PF) | ((bltz | bltzal) & (~PF & ~ZF)))?branchAddr:muxjump;
 assign muxjr = jr?jrAddr:muxbranch;
 assign muxPCWrite = PCWrite?muxjr:NPC;
 assign nextPC = muxPCWrite;

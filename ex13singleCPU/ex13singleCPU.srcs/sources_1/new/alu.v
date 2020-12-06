@@ -303,7 +303,7 @@ begin
         5'b10010: //  div
         begin
             hi=input1 / input2;
-            hi=input1 % input2;
+            lo=input1 % input2;
             aluRes=0;
             ZF=1;
             OF=0;

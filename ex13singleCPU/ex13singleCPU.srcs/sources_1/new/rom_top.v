@@ -6,9 +6,28 @@ module rom_top(
     output [31:0] data//输出数据
 );
 wire [7:0]addr;
+reg clk;
 assign addr[7:0] = PC[9:2];
+initial begin
+    clk=0;
+    #1;
+    clk=1;
+    #1
+    clk=0;
+    #1;
+    clk=1;
+end
+always @(addr)begin 
+    clk=0;
+    #1;
+    clk=1;
+    #1;
+    clk=0;
+    #1;
+    clk=1;
+end
 blk_mem_gen_0 rom (
-                  .clka(Clk),    // input wire clka
+                  .clka(clk),    // input wire clka
                   .ena(1'b1),      // input wire ena数据输出允许
                   .addra(addr),  // input wire [7 : 0] addra
                   .douta(data)  // output wire [15 : 0] douta

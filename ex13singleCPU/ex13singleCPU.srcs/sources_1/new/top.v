@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
 module top(
+           input ena,
            input clkin,
            input reset,
            output [6:0] sm_duan,//¶ÎÂë
@@ -112,6 +113,7 @@ link link1(
          .W_Addr(muxlinkaddr)
      );
 PCctr PCctr1(
+          .ena(ena),
           .clkin(clkin),
           .reset(reset),
           .PCWrite(PCWrite),

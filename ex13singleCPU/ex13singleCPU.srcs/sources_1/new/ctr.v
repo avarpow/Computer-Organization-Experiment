@@ -93,8 +93,7 @@ always@(opCode) begin
             end
             else if(funct==6'b000000)
             begin
-                noop=1;
-                regWrite=0;
+                noop=1;//sll
             end
         end
 
@@ -664,7 +663,7 @@ always@(opCode) begin
         6'b000100: begin
             regDst = 0;
             aluSrc = 0;
-            aluZeroinput = 1;
+            aluZeroinput = 0;
             memToReg = 0;
             regWrite = 0;
             memRead = 0;
@@ -696,7 +695,7 @@ always@(opCode) begin
         6'b000101: begin
             regDst = 0;
             aluSrc = 0;
-            aluZeroinput = 1;
+            aluZeroinput = 0;
             memToReg = 0;
             regWrite = 0;
             memRead = 0;

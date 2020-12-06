@@ -13,6 +13,7 @@ module alu(
        );
 always @(input1 or input2 or aluCtr) // 运算数或控制码变化时操作
 begin
+
     case(aluCtr)
         5'b00000: //  add
         begin

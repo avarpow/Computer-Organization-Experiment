@@ -1,5 +1,6 @@
 module PCctr 
 (
+    input ena,
     input clkin,
     input reset,
     //input [31:0] CPC,
@@ -27,7 +28,7 @@ assign NPC=PC;
 assign CPCadd4=PC+4;
 assign extimm = {{14{imm_16[15]}},imm_16[15:0], {2{1'b0}}};//branch偏移量
 assign jumpAddr={PC[31:28],target, {2{1'b0}}};//jump 地址target<<2
-assign branchAddr = PC+extimm;//branch跳转地址
+assign branchAddr = CPCadd4+extimm;//branch跳转地址
 assign jrAddr=R_Data_A;
 assign muxjump=(jmp | jal)?jumpAddr:CPCadd4;
 assign muxbranch=((bne & (~ZF))|(beq & ZF)|((bgez|bgezal) & (PF | ZF)) | (blez & (~PF)) | ((bltz | bltzal) & (~PF & ~ZF)))?branchAddr:muxjump;
@@ -40,7 +41,7 @@ assign nextPC = muxPCWrite;
 
 always @(negedge clkin ,posedge reset)
 	begin
-        if(!reset)
+        if(~reset & ena)
 			PC<=nextPC;
         else
             PC<=32'h00000000;

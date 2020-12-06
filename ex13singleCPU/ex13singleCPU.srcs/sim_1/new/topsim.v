@@ -3,24 +3,28 @@ module topsim;
 // Inputs 
 reg clkin; 
 reg reset;
+reg ena;
 // Instantiate the Unit Under Test (UUT)
 top uut (
+        .ena(ena),
         .clkin(clkin),
         .reset(reset)
     );
 
 initial begin
     // Initialize Inputs 
-    clkin = 0;
+    ena=0;
     reset=0;
-    #10;
+    #1;
     reset = 1;
-    #50;
-    // Wait 100 ns for global reset to finish #100;
-    reset = 0;
+    #1;
+    reset=0;
+    // Wait 100 ns for global reset to finish 
+    #20;
+    ena=1;
 end
 
-parameter PERIOD = 20; 
+parameter PERIOD = 40; 
 always begin
     clkin = 1'b0;
     #(PERIOD / 2) clkin = 1'b1;

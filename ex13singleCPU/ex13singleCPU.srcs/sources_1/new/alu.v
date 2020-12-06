@@ -18,11 +18,11 @@ begin
         5'b00000: //  add
         begin
             aluRes = $signed(input1) + $signed(input2); 
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -33,11 +33,11 @@ begin
         5'b00001: //  addu
         begin
             aluRes = input1 + input2; 
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -48,11 +48,11 @@ begin
         5'b00010: //  sub
         begin
             aluRes = $signed(input1) - $signed(input2); 
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -63,11 +63,11 @@ begin
         5'b00011: //  subu
         begin
             aluRes = input1 - input2; 
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -78,11 +78,11 @@ begin
         5'b00100: //  and
         begin
             aluRes = input1 & input2; 
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -93,11 +93,11 @@ begin
         5'b00101: //  or
         begin
             aluRes = input1 | input2; 
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -108,11 +108,11 @@ begin
         5'b00101: //  or
         begin
             aluRes = input1 | input2; 
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -123,11 +123,11 @@ begin
         5'b00110: //  xor
         begin
             aluRes = ((~input1) & input2) | (input1 & (~input2));
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -138,11 +138,11 @@ begin
         5'b00111: //  nor
         begin
             aluRes = ~(input1 | input2);
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -156,11 +156,11 @@ begin
                 aluRes = 1;
             else 
                 aluRes = 0;
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -174,11 +174,11 @@ begin
                 aluRes = 1;
             else 
                 aluRes = 0;
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -189,11 +189,11 @@ begin
         5'b01010: //  lui
         begin
             aluRes={input2[15:0],16'b0000_0000_0000_0000};
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -204,11 +204,11 @@ begin
         5'b01011: //  sll
         begin
             aluRes=input2 << shamt;
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -219,11 +219,11 @@ begin
         5'b01100: //  srl
         begin
             aluRes=input2 >> shamt;
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -234,11 +234,11 @@ begin
         5'b01101: //  sllv
         begin
             aluRes=input2 << input1[4:0];
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -249,11 +249,11 @@ begin
         5'b01110: //  srlv
         begin
             aluRes=input2 >> input1[4:0];
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -264,11 +264,11 @@ begin
         5'b01111: //  sra
         begin
             aluRes= $signed(input2) >>> shamt;
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;
@@ -279,11 +279,11 @@ begin
         5'b10000: //  srav
         begin
             aluRes= $signed(input2) >>> input1[4:0];
-            if($signed(aluRes)>0) 
+            if(aluRes==0) 
                 ZF=1; 
             else 
                 ZF=0;
-            if(aluRes>0)
+            if($signed(aluRes)>0)
                 PF=1;
             else 
                 PF=0;

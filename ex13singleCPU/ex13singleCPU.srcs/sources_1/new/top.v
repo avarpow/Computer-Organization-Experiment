@@ -1,20 +1,55 @@
 `timescale 1ns / 1ps
 module top(
            input clkin,
-           input reset,
+           //input reset,
            output [6:0] sm_duan,//段码
            output [3:0] sm_wei,//哪个数码管
-           output [31:0] PC,
-           output [31:0] aluRes,
-           output [31:0] instruction
+           output [12:0] lPC,
+           //output [31:0] aluRes
+           //output [31:0] instruction
+           output clk_sys_led
        );
 // 复用器信号线
+//按键消抖模块
+reg [28:0] div_counter =0;
+reg clk_sys =0; 
+reg reset;
+assign clk_sys_led=clk_sys;
+initial begin
+    // Initialize Inputs 
 
+    reset=0;
+    #100;
+    reset = 1;
+    clk_sys=0;
+    #1;
+    clk_sys=1;
+    #1
+    clk_sys=0;
+    #1;
+    clk_sys=1;
+    #100;
+    reset=0;
+    // Wait 100 ns for global reset to finish 
+    #200;
+end
+always @(posedge clkin) begin
+    if(div_counter >= 100000000) begin
+        clk_sys<=~clk_sys;
+        div_counter <=0;
+    end
+    else begin
+        div_counter <= div_counter +1;
+    end
+end
+wire [31:0] PC;
+assign lPC[12:0]=PC[12:0];
 //数据存储器
 wire[31:0] memreaddata;
 // 指令存储器
 //wire [31:0] instruction;
-reg[7:0] Addr;
+//reg[7:0] Addr;
+wire[31:0] instruction;
 // CPU 控制信号线
 wire reg_dst,memread, memwrite, memtoreg,alu_src,alu_zeroinput,ExtOp;
 wire[3:0] aluop;
@@ -44,6 +79,7 @@ wire [4:0]regWriteAddr;
 wire[31:0]regWriteData;
 //link
 wire [4:0]muxlinkaddr;
+wire [31:0]aluRes;
 assign shamt=instruction[10:6];
 assign regWriteAddr = reg_dst ? instruction[15:11] : instruction[20:16];//写寄存器的目标寄存器来自rt或rd
 assign data=aluRes[15:0];
@@ -52,7 +88,7 @@ assign data=aluRes[15:0];
 // 例化指令存储器
 
 rom_top trom(
-            .Clk(clkin),
+            .Clk(clk_sys),
             .Rst(1'b0),
             .PC(PC),
             .data(instruction)
@@ -116,7 +152,7 @@ link link1(
          .W_Addr(muxlinkaddr)
      );
 PCctr PCctr1(
-          .clkin(clkin),
+          .clkin(clk_sys),
           .reset(reset),
           .PCWrite(PCWrite),
           .target(instruction[25:0]),
@@ -154,7 +190,7 @@ dataToReg dataToReg1(
           );
 // 。。。。。。。。。。。。。。。。。。。。。。。。。实例化寄存器模块
 RegFile regfile(
-            .Clk(clkin),
+            .Clk(clk_sys),
             .Clr(reset),
             .Write_Reg(link_reg_write),
             .R_Addr_A(instruction[25:21]),
@@ -192,7 +228,7 @@ signext signext(
         );
 //实例化数据存储器
 dram dm(
-         .clk(clkin),
+         .clk(clk_sys),
          .memwrite(memwrite),
          .reset(reset),
          .flag(storemux),

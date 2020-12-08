@@ -35,9 +35,9 @@ assign muxbranch=((bne & (~ZF))|(beq & ZF)|((bgez|bgezal) & (PF | ZF)) | (blez &
 assign muxjr = jr?jrAddr:muxbranch;
 assign muxPCWrite = PCWrite?muxjr:NPC;
 assign nextPC = muxPCWrite;
-// initial begin
-//     PC=32'h00000000;
-// end
+initial begin
+    PC=32'h00000000;
+end
 
 always @(negedge clkin ,posedge reset)
 	begin

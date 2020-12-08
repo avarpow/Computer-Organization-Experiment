@@ -1,6 +1,5 @@
 `timescale 1ns / 1ps
 module top(
-           input ena,
            input clkin,
            input reset,
            output [6:0] sm_duan,//¶ÎÂë
@@ -33,6 +32,9 @@ wire[31:0] input2;
 wire [15:0]data;
 //link
 wire [4:0] linkaddr;
+//datatoreg
+wire link_reg_write;
+ 
 //PCctr
 wire [31:0] CPCadd4;
 // ¼Ä´æÆ÷ÐÅºÅÏß
@@ -114,7 +116,6 @@ link link1(
          .W_Addr(muxlinkaddr)
      );
 PCctr PCctr1(
-          .ena(ena),
           .clkin(clkin),
           .reset(reset),
           .PCWrite(PCWrite),
@@ -140,20 +141,22 @@ PCctr PCctr1(
 dataToReg dataToReg1(
               .memToReg(memtoreg),
               .jal(jal),
+              .regWrite(regwrite),
               .bgezal(bgezal),
               .bltzal(bltzal),
               .ZF(ZF),
               .PF(PF),
-              .PCAdd4(CPCAdd4),
+              .PCAdd4(CPCadd4),
               .alures(aluRes),
               .mem_data(memreaddata),
-              .w_data(regWriteData)
+              .w_data(regWriteData),
+              .link_reg_write(link_reg_write)
           );
 // ¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£ÊµÀý»¯¼Ä´æÆ÷Ä£¿é
 RegFile regfile(
-            .Clk(!clkin),
+            .Clk(clkin),
             .Clr(reset),
-            .Write_Reg(regwrite),
+            .Write_Reg(link_reg_write),
             .R_Addr_A(instruction[25:21]),
             .R_Addr_B(instruction[20:16]),
             .W_Addr(muxlinkaddr),

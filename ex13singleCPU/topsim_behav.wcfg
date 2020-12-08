@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="180000fs"></ZoomStartTime>
-      <ZoomEndTime time="468201fs"></ZoomEndTime>
-      <Cursor1Time time="343800fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="292201fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="140"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <ValueColumnWidth column_width="70"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="43" />
+   <WVObjectSize size="120" />
    <wvobject fp_name="/topsim/uut/trom/Clk" type="logic">
       <obj_property name="ElementShortName">Clk</obj_property>
       <obj_property name="ObjectShortName">Clk</obj_property>
@@ -36,14 +36,6 @@
       <obj_property name="ElementShortName">data[31:0]</obj_property>
       <obj_property name="ObjectShortName">data[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/topsim/uut/trom/addr" type="array">
-      <obj_property name="ElementShortName">addr[7:0]</obj_property>
-      <obj_property name="ObjectShortName">addr[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/topsim/uut/trom/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
    <wvobject fp_name="/topsim/uut/alu/shamt" type="array">
       <obj_property name="ElementShortName">shamt[4:0]</obj_property>
       <obj_property name="ObjectShortName">shamt[4:0]</obj_property>
@@ -56,10 +48,6 @@
       <obj_property name="ElementShortName">input2[31:0]</obj_property>
       <obj_property name="ObjectShortName">input2[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/topsim/uut/alu/aluCtr" type="array">
-      <obj_property name="ElementShortName">aluCtr[4:0]</obj_property>
-      <obj_property name="ObjectShortName">aluCtr[4:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/topsim/uut/alu/aluRes" type="array">
       <obj_property name="ElementShortName">aluRes[31:0]</obj_property>
       <obj_property name="ObjectShortName">aluRes[31:0]</obj_property>
@@ -67,14 +55,6 @@
    <wvobject fp_name="/topsim/uut/alu/ZF" type="logic">
       <obj_property name="ElementShortName">ZF</obj_property>
       <obj_property name="ObjectShortName">ZF</obj_property>
-   </wvobject>
-   <wvobject fp_name="/topsim/uut/alu/CF" type="logic">
-      <obj_property name="ElementShortName">CF</obj_property>
-      <obj_property name="ObjectShortName">CF</obj_property>
-   </wvobject>
-   <wvobject fp_name="/topsim/uut/alu/OF" type="logic">
-      <obj_property name="ElementShortName">OF</obj_property>
-      <obj_property name="ObjectShortName">OF</obj_property>
    </wvobject>
    <wvobject fp_name="/topsim/uut/alu/PF" type="logic">
       <obj_property name="ElementShortName">PF</obj_property>
@@ -151,6 +131,7 @@
    <wvobject fp_name="/topsim/uut/regfile/REG_Files" type="array">
       <obj_property name="ElementShortName">REG_Files[0:31][31:0]</obj_property>
       <obj_property name="ObjectShortName">REG_Files[0:31][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/topsim/uut/regfile/hi" type="array">
       <obj_property name="ElementShortName">hi[31:0]</obj_property>
@@ -191,5 +172,333 @@
    <wvobject fp_name="/topsim/uut/aluinput2_i/muxzero" type="array">
       <obj_property name="ElementShortName">muxzero[31:0]</obj_property>
       <obj_property name="ObjectShortName">muxzero[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/clkin" type="logic">
+      <obj_property name="ElementShortName">clkin</obj_property>
+      <obj_property name="ObjectShortName">clkin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/PCWrite" type="logic">
+      <obj_property name="ElementShortName">PCWrite</obj_property>
+      <obj_property name="ObjectShortName">PCWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/target" type="array">
+      <obj_property name="ElementShortName">target[25:0]</obj_property>
+      <obj_property name="ObjectShortName">target[25:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/imm_16" type="array">
+      <obj_property name="ElementShortName">imm_16[15:0]</obj_property>
+      <obj_property name="ObjectShortName">imm_16[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/R_Data_A" type="array">
+      <obj_property name="ElementShortName">R_Data_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">R_Data_A[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jmp" type="logic">
+      <obj_property name="ElementShortName">jmp</obj_property>
+      <obj_property name="ObjectShortName">jmp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jal" type="logic">
+      <obj_property name="ElementShortName">jal</obj_property>
+      <obj_property name="ObjectShortName">jal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jr" type="logic">
+      <obj_property name="ElementShortName">jr</obj_property>
+      <obj_property name="ObjectShortName">jr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bne" type="logic">
+      <obj_property name="ElementShortName">bne</obj_property>
+      <obj_property name="ObjectShortName">bne</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/beq" type="logic">
+      <obj_property name="ElementShortName">beq</obj_property>
+      <obj_property name="ObjectShortName">beq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bgez" type="logic">
+      <obj_property name="ElementShortName">bgez</obj_property>
+      <obj_property name="ObjectShortName">bgez</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bgezal" type="logic">
+      <obj_property name="ElementShortName">bgezal</obj_property>
+      <obj_property name="ObjectShortName">bgezal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/mainctr/bgtz" type="logic">
+      <obj_property name="ElementShortName">bgtz</obj_property>
+      <obj_property name="ObjectShortName">bgtz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/blez" type="logic">
+      <obj_property name="ElementShortName">blez</obj_property>
+      <obj_property name="ObjectShortName">blez</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bltz" type="logic">
+      <obj_property name="ElementShortName">bltz</obj_property>
+      <obj_property name="ObjectShortName">bltz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bltzal" type="logic">
+      <obj_property name="ElementShortName">bltzal</obj_property>
+      <obj_property name="ObjectShortName">bltzal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/ZF" type="logic">
+      <obj_property name="ElementShortName">ZF</obj_property>
+      <obj_property name="ObjectShortName">ZF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/PF" type="logic">
+      <obj_property name="ElementShortName">PF</obj_property>
+      <obj_property name="ObjectShortName">PF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/PC" type="array">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/CPCadd4" type="array">
+      <obj_property name="ElementShortName">CPCadd4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CPCadd4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/NPC" type="array">
+      <obj_property name="ElementShortName">NPC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NPC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jumpAddr" type="array">
+      <obj_property name="ElementShortName">jumpAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">jumpAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/branchAddr" type="array">
+      <obj_property name="ElementShortName">branchAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branchAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jrAddr" type="array">
+      <obj_property name="ElementShortName">jrAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">jrAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/extimm" type="array">
+      <obj_property name="ElementShortName">extimm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">extimm[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/nextPC" type="array">
+      <obj_property name="ElementShortName">nextPC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">nextPC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/muxjump" type="array">
+      <obj_property name="ElementShortName">muxjump[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxjump[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/muxbranch" type="array">
+      <obj_property name="ElementShortName">muxbranch[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxbranch[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/muxjr" type="array">
+      <obj_property name="ElementShortName">muxjr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxjr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/muxPCWrite" type="array">
+      <obj_property name="ElementShortName">muxPCWrite[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxPCWrite[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/clkin" type="logic">
+      <obj_property name="ElementShortName">clkin</obj_property>
+      <obj_property name="ObjectShortName">clkin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/PCWrite" type="logic">
+      <obj_property name="ElementShortName">PCWrite</obj_property>
+      <obj_property name="ObjectShortName">PCWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/target" type="array">
+      <obj_property name="ElementShortName">target[25:0]</obj_property>
+      <obj_property name="ObjectShortName">target[25:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/imm_16" type="array">
+      <obj_property name="ElementShortName">imm_16[15:0]</obj_property>
+      <obj_property name="ObjectShortName">imm_16[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/R_Data_A" type="array">
+      <obj_property name="ElementShortName">R_Data_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">R_Data_A[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jmp" type="logic">
+      <obj_property name="ElementShortName">jmp</obj_property>
+      <obj_property name="ObjectShortName">jmp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jal" type="logic">
+      <obj_property name="ElementShortName">jal</obj_property>
+      <obj_property name="ObjectShortName">jal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jr" type="logic">
+      <obj_property name="ElementShortName">jr</obj_property>
+      <obj_property name="ObjectShortName">jr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bne" type="logic">
+      <obj_property name="ElementShortName">bne</obj_property>
+      <obj_property name="ObjectShortName">bne</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/beq" type="logic">
+      <obj_property name="ElementShortName">beq</obj_property>
+      <obj_property name="ObjectShortName">beq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bgez" type="logic">
+      <obj_property name="ElementShortName">bgez</obj_property>
+      <obj_property name="ObjectShortName">bgez</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bgezal" type="logic">
+      <obj_property name="ElementShortName">bgezal</obj_property>
+      <obj_property name="ObjectShortName">bgezal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/blez" type="logic">
+      <obj_property name="ElementShortName">blez</obj_property>
+      <obj_property name="ObjectShortName">blez</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bltz" type="logic">
+      <obj_property name="ElementShortName">bltz</obj_property>
+      <obj_property name="ObjectShortName">bltz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/bltzal" type="logic">
+      <obj_property name="ElementShortName">bltzal</obj_property>
+      <obj_property name="ObjectShortName">bltzal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/ZF" type="logic">
+      <obj_property name="ElementShortName">ZF</obj_property>
+      <obj_property name="ObjectShortName">ZF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/PF" type="logic">
+      <obj_property name="ElementShortName">PF</obj_property>
+      <obj_property name="ObjectShortName">PF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/PC" type="array">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/CPCadd4" type="array">
+      <obj_property name="ElementShortName">CPCadd4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CPCadd4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/NPC" type="array">
+      <obj_property name="ElementShortName">NPC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NPC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jumpAddr" type="array">
+      <obj_property name="ElementShortName">jumpAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">jumpAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/branchAddr" type="array">
+      <obj_property name="ElementShortName">branchAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branchAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/jrAddr" type="array">
+      <obj_property name="ElementShortName">jrAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">jrAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/extimm" type="array">
+      <obj_property name="ElementShortName">extimm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">extimm[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/nextPC" type="array">
+      <obj_property name="ElementShortName">nextPC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">nextPC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/muxjump" type="array">
+      <obj_property name="ElementShortName">muxjump[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxjump[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/muxbranch" type="array">
+      <obj_property name="ElementShortName">muxbranch[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxbranch[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/muxjr" type="array">
+      <obj_property name="ElementShortName">muxjr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxjr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/muxPCWrite" type="array">
+      <obj_property name="ElementShortName">muxPCWrite[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxPCWrite[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dm/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dm/memwrite" type="logic">
+      <obj_property name="ElementShortName">memwrite</obj_property>
+      <obj_property name="ObjectShortName">memwrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dm/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dm/flag" type="array">
+      <obj_property name="ElementShortName">flag[1:0]</obj_property>
+      <obj_property name="ObjectShortName">flag[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dm/addr" type="array">
+      <obj_property name="ElementShortName">addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dm/write_data" type="array">
+      <obj_property name="ElementShortName">write_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">write_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dm/read_data" type="array">
+      <obj_property name="ElementShortName">read_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dm/RAM" type="array">
+      <obj_property name="ElementShortName">RAM[255:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM[255:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dm/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/memToReg" type="logic">
+      <obj_property name="ElementShortName">memToReg</obj_property>
+      <obj_property name="ObjectShortName">memToReg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/jal" type="logic">
+      <obj_property name="ElementShortName">jal</obj_property>
+      <obj_property name="ObjectShortName">jal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/bgezal" type="logic">
+      <obj_property name="ElementShortName">bgezal</obj_property>
+      <obj_property name="ObjectShortName">bgezal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/bltzal" type="logic">
+      <obj_property name="ElementShortName">bltzal</obj_property>
+      <obj_property name="ObjectShortName">bltzal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/ZF" type="logic">
+      <obj_property name="ElementShortName">ZF</obj_property>
+      <obj_property name="ObjectShortName">ZF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/PF" type="logic">
+      <obj_property name="ElementShortName">PF</obj_property>
+      <obj_property name="ObjectShortName">PF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/PCAdd4" type="array">
+      <obj_property name="ElementShortName">PCAdd4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PCAdd4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/alures" type="array">
+      <obj_property name="ElementShortName">alures[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alures[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/mem_data" type="array">
+      <obj_property name="ElementShortName">mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/w_data" type="array">
+      <obj_property name="ElementShortName">w_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">w_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/muxmemread" type="array">
+      <obj_property name="ElementShortName">muxmemread[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxmemread[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/dataToReg1/muxlink" type="array">
+      <obj_property name="ElementShortName">muxlink[31:0]</obj_property>
+      <obj_property name="ObjectShortName">muxlink[31:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -5,9 +5,9 @@ module alu(
            input [31:0] input2,
            input [4:0] aluCtr, 
            output reg [31:0] aluRes, 
-           output reg ZF, //�?0则为1，否则为0
-           output reg CF,OF,//溢出�?�?
-           output reg PF,//正数�?1，负数为0
+           output reg ZF, //=0则为1，否则为0
+           output reg CF,OF,//溢出?
+           output reg PF,//正数=1，负数为0
            output reg [31:0]hi,
            output reg [31:0]lo
        );

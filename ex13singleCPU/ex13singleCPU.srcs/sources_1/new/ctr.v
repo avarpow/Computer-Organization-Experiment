@@ -137,7 +137,7 @@ always@(opCode,funct,rt) begin
             aluSrc = 0;
             aluZeroinput = 0;
             memToReg = 0;
-            regWrite = 0;
+            regWrite = 1;
             memRead = 0;
             memWrite = 0;
             ExtOp = 1;//56t4r

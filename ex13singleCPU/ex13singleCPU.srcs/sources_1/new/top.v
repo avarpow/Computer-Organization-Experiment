@@ -1,61 +1,34 @@
 `timescale 1ns / 1ps
 module top(
-           input clkin,
-           //input reset,
-           output [6:0] sm_duan,//段码
-           output [3:0] sm_wei,//哪个数码管
-           output [12:0] lPC,
-           //output [31:0] aluRes
-           //output [31:0] instruction
-           output clk_sys_led
-       );
-// 复用器信号线
-//按键消抖模块
-reg [28:0] div_counter =0;
-reg clk_sys =0; 
-reg reset;
-assign clk_sys_led=clk_sys;
-initial begin
-    // Initialize Inputs 
+        input clkin,
+        input clkdisplay,
+        input reset,
+        input high_low_choose,
+        input pc_npc_choose,
+        output [6:0] sm_duan,//段码
+        output [3:0] sm_wei,//哪个数码管
+        output  syscall,
+        output [7:0] lPC
 
-    reset=0;
-    #100;
-    reset = 1;
-    clk_sys=0;
-    #1;
-    clk_sys=1;
-    #1
-    clk_sys=0;
-    #1;
-    clk_sys=1;
-    #100;
-    reset=0;
-    // Wait 100 ns for global reset to finish 
-    #200;
-end
-always @(posedge clkin) begin
-    if(div_counter >= 100000000) begin
-        clk_sys<=~clk_sys;
-        div_counter <=0;
-    end
-    else begin
-        div_counter <= div_counter +1;
-    end
-end
+        //output [31:0] aluRes,
+        //output [31:0] instruction
+       );
+wire [31:0] aluRes;
 wire [31:0] PC;
-assign lPC[12:0]=PC[12:0];
+wire [31:0] instruction;
+assign lPC=PC[9:2];
+
 //数据存储器
 wire[31:0] memreaddata;
 // 指令存储器
 //wire [31:0] instruction;
-//reg[7:0] Addr;
-wire[31:0] instruction;
+reg[7:0] Addr;
 // CPU 控制信号线
 wire reg_dst,memread, memwrite, memtoreg,alu_src,alu_zeroinput,ExtOp;
 wire[3:0] aluop;
 wire regwrite;
 wire jmp,jal,jr,bne,beq,bgez,bgezal,bgtz,blez,bltz,bltzal;
-wire mult,div,mflo,mfhi,PCWrite,syscall,noop,halt;
+wire mult,div,mflo,mfhi,PCWrite,noop,halt;
 wire [1:0]storemux;
 // ALU 控制信号线
 wire ZF,OF,CF,PF; //alu运算标志
@@ -64,6 +37,7 @@ wire[31:0] hi,lo; //alu运算结果
 wire[4:0] aluCtr;//根据aluop和指令后6位 选择alu运算类型
 //
 wire[31:0] input2;
+wire[31:0] nextPC;
 wire [15:0]data;
 //link
 wire [4:0] linkaddr;
@@ -79,7 +53,6 @@ wire [4:0]regWriteAddr;
 wire[31:0]regWriteData;
 //link
 wire [4:0]muxlinkaddr;
-wire [31:0]aluRes;
 assign shamt=instruction[10:6];
 assign regWriteAddr = reg_dst ? instruction[15:11] : instruction[20:16];//写寄存器的目标寄存器来自rt或rd
 assign data=aluRes[15:0];
@@ -87,12 +60,16 @@ assign data=aluRes[15:0];
 //assign input2 = alu_src ? expand : RtData; //ALU的第二个操作数来自寄存器堆输出或指令低16位的符号扩展
 // 例化指令存储器
 
-rom_top trom(
-            .Clk(clk_sys),
-            .Rst(1'b0),
-            .PC(PC),
-            .data(instruction)
-        );
+// rom_top trom(
+//             .Clk(clkin),
+//             .Rst(1'b0),
+//             .PC(PC),
+//             .data(instruction)
+//         );
+im trom(
+    .Addr(PC[9:2]),
+    .instruction(instruction)
+);
 // 实例化控制器模块
 ctr mainctr(
         .opCode(instruction[31:26]),
@@ -152,7 +129,7 @@ link link1(
          .W_Addr(muxlinkaddr)
      );
 PCctr PCctr1(
-          .clkin(clk_sys),
+          .clkin(clkin),
           .reset(reset),
           .PCWrite(PCWrite),
           .target(instruction[25:0]),
@@ -172,7 +149,8 @@ PCctr PCctr1(
           .ZF(ZF),
           .PF(PF),
           .PC(PC),
-          .CPCadd4(CPCadd4)
+          .CPCadd4(CPCadd4),
+          .nextPC(nextPC)
       );
 dataToReg dataToReg1(
               .memToReg(memtoreg),
@@ -190,7 +168,7 @@ dataToReg dataToReg1(
           );
 // 。。。。。。。。。。。。。。。。。。。。。。。。。实例化寄存器模块
 RegFile regfile(
-            .Clk(clk_sys),
+            .Clk(clkin),
             .Clr(reset),
             .Write_Reg(link_reg_write),
             .R_Addr_A(instruction[25:21]),
@@ -228,7 +206,7 @@ signext signext(
         );
 //实例化数据存储器
 dram dm(
-         .clk(clk_sys),
+         .clk(clkin),
          .memwrite(memwrite),
          .reset(reset),
          .flag(storemux),
@@ -237,6 +215,15 @@ dram dm(
          .read_data(memreaddata)
      );
 //...............................实例化数码管显示模块
-display Smg(.clk(clkin),.sm_wei(sm_wei),.data(data),.sm_duan(sm_duan));
+display Smg(
+    .clk(clkdisplay),
+    .high_low_choose(high_low_choose),
+    .pc_npc_choose(pc_npc_choose),
+    .alures(aluRes),
+    .pc(PC),
+    .npc(nextPC),
+    .sm_wei(sm_wei),
+    .sm_duan(sm_duan)
+);
 
 endmodule

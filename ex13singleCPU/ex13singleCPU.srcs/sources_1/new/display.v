@@ -1,26 +1,40 @@
 `timescale 1ns / 1ps
-module display(clk,data,sm_wei,sm_duan); 
-input clk;
-input [15:0] data; 
-output [3:0] sm_wei; 
-output [6:0] sm_duan;
+module display(
+    input clk,
+    input high_low_choose,
+    input pc_npc_choose,
+    input [31:0] alures, 
+    input [31:0] pc,
+    input [31:0] npc, 
+    output [3:0] sm_wei, 
+    output [6:0] sm_duan
+); 
 //分频 
-integer clk_cnt;
+integer clk_cnt=0;
 reg clk_400Hz; 
+wire [15:0] low_data;
+wire [15:0] high_data;
+wire [15:0] data;
+wire [15:0] pcdata;
+assign low_data=alures[15:0];
+assign high_data=alures[31:16];
+assign pcdata=pc_npc_choose?{pc[7:0],npc[7:0]}:low_data;
+assign data=high_low_choose?high_data:pcdata;
+
 always @(posedge clk)
- if(clk_cnt==32'd1)
- 
-begin clk_cnt <= 1'b0; clk_400Hz <= ~clk_400Hz;
-end else clk_cnt <= clk_cnt + 1'b1;
+    if(clk_cnt==32'd100_000) 
+        begin clk_cnt <= 1'b0; 
+        clk_400Hz = ~clk_400Hz;
+        end 
+    else clk_cnt = clk_cnt + 1'b1;
 //位控制
  
 reg [3:0]wei_ctrl=4'b1110; 
-always @(posedge clk)
- 
-wei_ctrl <= {wei_ctrl[2:0],wei_ctrl[3]}; //位控制 
+always @(posedge clk_400Hz)
+wei_ctrl = {wei_ctrl[2:0],wei_ctrl[3]}; //位控制 
 reg [3:0]duan_ctrl;
  
-always @(wei_ctrl or data)
+always @(wei_ctrl)
 case(wei_ctrl) 
 4'b1110:duan_ctrl=data[3:0]; 
 4'b1101:duan_ctrl=data[7:4]; 

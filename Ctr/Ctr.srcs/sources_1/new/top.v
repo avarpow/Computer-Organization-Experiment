@@ -1,7 +1,11 @@
 `timescale 1ns / 1ps
 module top(
-input clkin, input reset,
+input clkin, 
+input clkdisplay, 
+input reset,
 input [7:0]PC,
+input high_low_choose;
+input pc_npc_choose;
 output [6:0] sm_duan,//段码
 output [3:0] sm_wei,//哪个数码管
 output [31:0]aluRes,
@@ -89,6 +93,12 @@ signext signext(.inst(instruction[15:0]),.ExtOp(ExtOp), .data(expand));
              .wd(RtData),
              .rd( memreaddata));
 //...............................实例化数码管显示模块
-display Smg(.clk(clkin),.sm_wei(sm_wei),.data(data),.sm_duan(sm_duan)); 
+display Smg(
+    .clk(clkdisplay),
+    .sm_wei(sm_wei),
+    .alures(aluRes),
+    .pc(PC),
+    .sm_duan(sm_duan)
+    ); 
 
 endmodule

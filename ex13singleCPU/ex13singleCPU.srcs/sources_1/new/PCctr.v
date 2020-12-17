@@ -21,9 +21,10 @@ module PCctr
     input ZF,
     input PF,
     output reg [31:0] PC,
-    output [31:0]CPCadd4
+    output [31:0]CPCadd4,
+    output [31:0]nextPC
 );
-wire[31:0] NPC,jumpAddr,branchAddr,jrAddr,extimm,nextPC,muxjump,muxbranch,muxjr,muxPCWrite;
+wire[31:0] NPC,jumpAddr,branchAddr,jrAddr,extimm,muxjump,muxbranch,muxjr,muxPCWrite;
 assign NPC=PC;
 assign CPCadd4=PC+4;
 assign extimm = {{14{imm_16[15]}},imm_16[15:0], {2{1'b0}}};//branch偏移量
@@ -35,15 +36,17 @@ assign muxbranch=((bne & (~ZF))|(beq & ZF)|((bgez|bgezal) & (PF | ZF)) | (blez &
 assign muxjr = jr?jrAddr:muxbranch;
 assign muxPCWrite = PCWrite?muxjr:NPC;
 assign nextPC = muxPCWrite;
+// initial begin
+//     PC=32'h00000000;
+// end
 initial begin
     PC=32'h00000000;
 end
-
-always @(negedge clkin ,posedge reset)
+always @(negedge clkin)
 	begin
         if(~reset)
-			PC<=nextPC;
+			PC=nextPC;
         else
-            PC<=32'h00000000;
+            PC=32'h00000000;
 	end
 endmodule  //PCctr

@@ -11,31 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="292201fs"></ZoomEndTime>
-      <Cursor1Time time="0fs"></Cursor1Time>
+      <ZoomStartTime time="1940769fs"></ZoomStartTime>
+      <ZoomEndTime time="2082570fs"></ZoomEndTime>
+      <Cursor1Time time="2060369fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="140"></NameColumnWidth>
-      <ValueColumnWidth column_width="70"></ValueColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="120" />
-   <wvobject fp_name="/topsim/uut/trom/Clk" type="logic">
-      <obj_property name="ElementShortName">Clk</obj_property>
-      <obj_property name="ObjectShortName">Clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/topsim/uut/trom/Rst" type="logic">
-      <obj_property name="ElementShortName">Rst</obj_property>
-      <obj_property name="ObjectShortName">Rst</obj_property>
-   </wvobject>
-   <wvobject fp_name="/topsim/uut/trom/PC" type="array">
-      <obj_property name="ElementShortName">PC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/topsim/uut/trom/data" type="array">
-      <obj_property name="ElementShortName">data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">data[31:0]</obj_property>
-   </wvobject>
+   <WVObjectSize size="117" />
    <wvobject fp_name="/topsim/uut/alu/shamt" type="array">
       <obj_property name="ElementShortName">shamt[4:0]</obj_property>
       <obj_property name="ObjectShortName">shamt[4:0]</obj_property>
@@ -127,6 +111,10 @@
    <wvobject fp_name="/topsim/uut/regfile/R_Data_B" type="array">
       <obj_property name="ElementShortName">R_Data_B[31:0]</obj_property>
       <obj_property name="ObjectShortName">R_Data_B[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/PC" type="array">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/topsim/uut/regfile/REG_Files" type="array">
       <obj_property name="ElementShortName">REG_Files[0:31][31:0]</obj_property>
@@ -369,9 +357,9 @@
       <obj_property name="ElementShortName">PF</obj_property>
       <obj_property name="ObjectShortName">PF</obj_property>
    </wvobject>
-   <wvobject fp_name="/topsim/uut/PCctr1/PC" type="array">
-      <obj_property name="ElementShortName">PC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   <wvobject fp_name="/topsim/uut/instruction" type="array">
+      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/topsim/uut/PCctr1/CPCadd4" type="array">
       <obj_property name="ElementShortName">CPCadd4[31:0]</obj_property>

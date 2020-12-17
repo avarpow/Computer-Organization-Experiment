@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Tue Dec  8 19:11:42 2020
+| Date         : Thu Dec 17 10:51:06 2020
 | Host         : DESKTOP-CCVBI4S running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |   357 |
-|    Minimum number of control sets                        |   357 |
+| Total control sets                                       |   295 |
+|    Minimum number of control sets                        |   295 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   457 |
+| Unused register locations in slices containing registers |    13 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |   357 |
-| >= 0 to < 4        |    64 |
+| Total control sets |   295 |
+| >= 0 to < 4        |     1 |
 | >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |   256 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |    36 |
+| >= 16              |    37 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             106 |           52 |
-| No           | No                    | Yes                    |              32 |           32 |
-| No           | Yes                   | No                     |              61 |           40 |
-| Yes          | No                    | No                     |            3136 |         2028 |
-| Yes          | No                    | Yes                    |               0 |            0 |
+| No           | No                    | No                     |             108 |           56 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              63 |           26 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |            3136 |         1906 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -70,366 +70,304 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------------------+--------------------------------+----------------------------------+------------------+----------------+
-|            Clock Signal           |          Enable Signal         |         Set/Reset Signal         | Slice Load Count | Bel Load Count |
-+-----------------------------------+--------------------------------+----------------------------------+------------------+----------------+
-|  PCctr1/muxPCWrite[31]            |                                | PCctr1/PC_reg[31]_LDC_i_2_n_1    |                1 |              1 |
-|  PCctr1/muxPCWrite[28]            |                                | PCctr1/PC_reg[28]_LDC_i_2_n_1    |                1 |              1 |
-|  PCctr1/muxPCWrite[29]            |                                | PCctr1/PC_reg[29]_LDC_i_2_n_1    |                1 |              1 |
-|  PCctr1/muxPCWrite[30]            |                                | PCctr1/PC_reg[30]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[3]  |                                | PCctr1/PC_reg[3]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[6]  |                                | PCctr1/PC_reg[6]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[11] |                                | PCctr1/PC_reg[11]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[1]  |                                | PCctr1/PC_reg[1]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[5]  |                                | PCctr1/PC_reg[5]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[9]  |                                | PCctr1/PC_reg[9]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[8]  |                                | PCctr1/PC_reg[8]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[10] |                                | PCctr1/PC_reg[10]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[12] |                                | PCctr1/PC_reg[12]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[13] |                                | PCctr1/PC_reg[13]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[14] |                                | PCctr1/PC_reg[14]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[2]  |                                | PCctr1/PC_reg[2]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[15] |                                | PCctr1/PC_reg[15]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[16] |                                | PCctr1/PC_reg[16]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[7]  |                                | PCctr1/PC_reg[7]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[4]  |                                | PCctr1/PC_reg[4]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[0]  |                                | PCctr1/PC_reg[0]_LDC_i_2_n_1     |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[19] |                                | PCctr1/PC_reg[19]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[17] |                                | PCctr1/PC_reg[17]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[27] |                                | PCctr1/PC_reg[27]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[23] |                                | PCctr1/PC_reg[23]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[22] |                                | PCctr1/PC_reg[22]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[18] |                                | PCctr1/PC_reg[18]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[25] |                                | PCctr1/PC_reg[25]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[26] |                                | PCctr1/PC_reg[26]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[21] |                                | PCctr1/PC_reg[21]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[20] |                                | PCctr1/PC_reg[20]_LDC_i_2_n_1    |                1 |              1 |
-|  mainctr/PC_reg[27]_LDC_i_5_0[24] |                                | PCctr1/PC_reg[24]_LDC_i_2_n_1    |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | PCctr1/muxPCWrite[29]            |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | PCctr1/muxPCWrite[28]            |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | PCctr1/muxPCWrite[31]            |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[24] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | PCctr1/muxPCWrite[30]            |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[3]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[6]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[11] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[1]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[5]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[9]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[8]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[10] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[12] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[13] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[14] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[2]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[15] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[16] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[7]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[4]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[0]  |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[19] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[17] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[27] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[23] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[22] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[18] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[25] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[26] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[21] |                1 |              1 |
-| ~clk_sys_led_OBUF_BUFG            |                                | mainctr/PC_reg[27]_LDC_i_5_0[20] |                1 |              1 |
-|  clkin_IBUF_BUFG                  |                                |                                  |                2 |              5 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[145][7]_i_5_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[149][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[152][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[152][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[14][7]_i_5_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[145][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[150][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[149][7]_i_3_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[157][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[156][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[159][7]_i_5_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[154][7]_i_3_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[15][7]_i_3_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[155][7]_i_4_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[162][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[162][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[165][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[166][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[169][7]_i_4_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[170][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[169][7]_i_3_0         |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[167][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[175][7]_i_3_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[173][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[173][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[178][7]_i_4_0         |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[178][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[177][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | mainctr/RAM[100][7]_i_3        |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[102][7]_i_5_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[100][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[104][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[101][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[109][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[109][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[106][7]_i_5_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[107][7]_i_5_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[106][7]_i_3_0         |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[114][7]_i_4_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[114][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[112][7]_i_5_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[117][7]_i_3_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[116][7]_i_4_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[117][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[186][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[186][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[189][7]_i_4_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[189][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[192][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[194][7]_i_6_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[195][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[197][7]_i_5_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[194][7]_i_3_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[197][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[200][7]_i_5_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[201][7]_i_5_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[202][7]_i_3_0         |                                  |                8 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[199][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[204][7]_i_3_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[205][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[204][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[206][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[207][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[208][7]_i_5_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[20][7]_i_5_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[211][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[212][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[20][7]_i_3_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[213][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[216][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[217][7]_i_3_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[215][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[217][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[220][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[218][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[221][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[226][4]_i_3_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[223][7]_i_5_1         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[221][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[223][7]_i_5_0         |                                  |                8 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[226][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[228][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[233][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[22][7]_i_5_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[229][7]_i_5_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[230][7]_i_6_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[234][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[231][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[236][7]_i_6           |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[236][7]_i_6_3         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[236][7]_i_6_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[235][7]_i_6           |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[239][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[237][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[239][7]_i_5_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[236][7]_i_6_1         |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[236][7]_i_6_2         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[245][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[244][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[244][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[242][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[243][7]_i_3_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[246][7]_i_5_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[249][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[248][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[248][7]_i_5_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[253][7]_i_4_0         |                                  |                8 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[253][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[250][7]_i_4_0         |                                  |                8 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[251][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[254][7]_i_5_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[28][7]_i_3_0          |                                  |                8 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_10        |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_12        |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_6_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_1         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_14        |                                  |                1 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_9         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_3         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_6         |                                  |                8 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_11        |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_7         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_5         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_13        |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_4         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_8         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[25][7]_i_4_0          |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[255][7]_i_3_2         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[35][7]_i_4_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[29][7]_i_3_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[30][7]_i_4_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[2][7]_i_4_0           |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[32][7]_i_5_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[30][7]_i_3_0          |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[40][7]_i_3_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[38][7]_i_4_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[37][7]_i_3_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[3][7]_i_5_0           |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[39][7]_i_4_0          |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[41][7]_i_4_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[44][7]_i_3_1          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[42][7]_i_5_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[49][7]_i_3_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[45][7]_i_4_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[47][7]_i_3_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[47][7]_i_4_0          |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[49][7]_i_4_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[53][7]_i_4_0          |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[54][7]_i_4_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[51][7]_i_3_0          |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[59][7]_i_4_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[59][7]_i_5_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[56][7]_i_4_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[55][7]_i_6_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[58][7]_i_4_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[64][7]_i_6_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[60][7]_i_4_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[65][7]_i_3_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[66][7]_i_5_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[60][7]_i_4_1          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[62][7]_i_5_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[61][7]_i_5_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[69][7]_i_4_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[69][7]_i_3_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[70][7]_i_5_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[68][7]_i_4_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[77][7]_i_4_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[74][7]_i_4_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[74][7]_i_5_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[76][7]_i_5_0          |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[73][7]_i_4_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[75][7]_i_3            |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[81][7]_i_3_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[79][7]_i_4_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[82][7]_i_4_0          |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[84][7]_i_3_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[83][7]_i_4_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[82][7]_i_3_0          |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[87][7]_i_3_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[8][7]_i_4_0           |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[88][7]_i_6_0          |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[89][7]_i_4_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[90][7]_i_4_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[94][7]_i_3_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[92][7]_i_5_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[93][7]_i_3_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[95][7]_i_4_0          |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[91][7]_i_4_0          |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[97][7]_i_5_0          |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep       |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep_18    |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep_20    |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep_19    |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep_16    |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__0_25 |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep_13    |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep_12    |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep_15    |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep_14    |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__3_13 |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__3_14 |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__1_13 |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__2    |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__1_22 |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__2_2  |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__2_0  |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__0_36 |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__2_1  |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__0_37 |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__2_3  |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__0_38 |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__1_23 |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__1_24 |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__3_10 |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__3_12 |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__3_11 |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__0_35 |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__1_12 |                                  |                8 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[1]_rep__8_0  |                                  |                3 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[1]_rep__8    |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__5_0  |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[1]_rep__9    |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__3_7  |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__5    |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[0]_rep__4    |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[1]_rep__0    |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/storemux_reg[1]_rep__0_0  |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[184][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[181][7]_i_5_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[17][7]_i_4_0          |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[181][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[118][7]_i_4_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[121][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[121][7]_i_3_0         |                                  |                2 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[122][7]_i_4_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[123][7]_i_5_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[125][7]_i_4_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[127][7]_i_3_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[128][7]_i_6_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[125][7]_i_4_1         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[135][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[132][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[129][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[129][7]_i_3_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[134][7]_i_5_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[130][7]_i_5_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[133][7]_i_4_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[13][7]_i_4_0          |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[137][7]_i_4_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[143][7]_i_3_0         |                                  |                7 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[138][7]_i_5_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[141][7]_i_3_0         |                                  |                4 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[141][7]_i_4_0         |                                  |                6 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[139][7]_i_3_0         |                                  |                5 |              8 |
-|  clk_sys_led_OBUF_BUFG            | trom/RAM[148][7]_i_3_0         |                                  |                6 |              8 |
-|  clkin_IBUF_BUFG                  |                                | clear                            |                8 |             29 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_6_6    |                                  |               18 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_5_2    |                                  |               17 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_4_2    |                                  |               24 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_6_4    |                                  |               22 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_6_3    |                                  |               18 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_6_5    |                                  |               19 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_6_7    |                                  |               19 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_7_1    |                                  |               17 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_7_2    |                                  |               24 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_4_0    |                                  |               18 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_5_1    |                                  |               17 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_6_2    |                                  |               15 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_6_8    |                                  |               20 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_8_6    |                                  |               17 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_8_3    |                                  |               20 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_8_5    |                                  |               20 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_8_7    |                                  |               19 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[0][31]_i_8_2    |                                  |               20 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[16][31]_i_3     |                                  |               18 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[17][31]_i_3_0   |                                  |               20 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[24][31]_i_3_3   |                                  |               27 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[5][31]_i_3_0    |                                  |               20 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[23][31]_i_3_0   |                                  |               24 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[24][31]_i_3_4   |                                  |               24 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[27][31]_i_3     |                                  |               18 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[24][24]_i_2_0   |                                  |               18 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[24][31]_i_3_2   |                                  |               22 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[24][31]_i_3_0   |                                  |               19 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/REG_Files[27][31]_i_3_0   |                                  |               20 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/lo[31]_i_2_0              |                                  |               17 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/lo[31]_i_2_2              |                                  |               20 |             32 |
-|  clk_sys_led_OBUF_BUFG            | trom/lo[31]_i_2_1              |                                  |               21 |             32 |
-|  ExtOp_BUFG                       |                                |                                  |               17 |             37 |
-|  n_0_5935_BUFG                    |                                |                                  |               33 |             64 |
-|  clk_sys_led_OBUF_BUFG            | mainctr/lo[31]_i_2_0           |                                  |               32 |             64 |
-+-----------------------------------+--------------------------------+----------------------------------+------------------+----------------+
++-----------------------+------------------------------------+------------------+------------------+----------------+
+|      Clock Signal     |            Enable Signal           | Set/Reset Signal | Slice Load Count | Bel Load Count |
++-----------------------+------------------------------------+------------------+------------------+----------------+
+|  clkdisplay_IBUF_BUFG |                                    |                  |                1 |              2 |
+|  Smg/clk_400Hz        |                                    |                  |                1 |              4 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_96[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | mainctr/RAM[100][7]_i_3[0]         | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/E[0]                       | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_38[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_390[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_379[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_378[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_382[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_380[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_388[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_377[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_387[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_389[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_383[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_10[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_100[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_101[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_111[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_109[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_113[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_114[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_105[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_102[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_103[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_110[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_106[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_122[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_132[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_119[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_128[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_125[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_134[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_124[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_129[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_126[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_120[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_123[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_130[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_118[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_121[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_116[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_137[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_14[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_138[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_144[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_146[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_141[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_147[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_140[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_142[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_143[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_149[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_148[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_16[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_160[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_161[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_176[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_164[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_170[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_166[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_173[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_175[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_168[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_162[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_169[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_167[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_163[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_182[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_186[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_180[0] | reset_IBUF       |                8 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_184[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_187[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_188[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_178[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_185[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_193[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_200[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_20[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_192[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_201[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_202[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_194[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_191[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_205[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_21[0]  | reset_IBUF       |                8 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_204[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_210[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_208[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_215[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_216[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_218[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_220[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_223[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_217[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_219[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_226[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_227[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_228[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_225[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_241[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_23[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_231[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_236[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_238[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_237[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_24[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_230[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_244[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_243[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_246[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_247[0] | reset_IBUF       |                8 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_257[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_26[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_267[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_254[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_255[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_259[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_260[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_258[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_256[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_261[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_264[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_266[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_268[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_27[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_269[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_270[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_263[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_271[0] | reset_IBUF       |                8 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_275[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_276[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_277[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_284[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_274[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_28[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_273[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_279[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_286[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_287[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_278[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_289[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_298[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_299[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_291[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_30[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_290[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_297[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_295[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_294[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_32[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_320[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_302[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_305[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_308[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_309[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_303[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_307[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_310[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_311[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_312[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_313[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_314[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_315[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_316[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_317[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_318[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_319[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_327[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_335[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_338[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_339[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_333[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_336[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_350[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_357[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_358[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_351[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_342[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_341[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_353[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_34[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_346[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_340[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_344[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_343[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_345[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_354[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_355[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_356[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_36[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_360[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_365[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_362[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_369[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_37[0]  | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_371[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_372[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_373[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_370[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_40[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_34[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_37[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_89[0]  | reset_IBUF       |                2 |              8 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_50[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_42[0]  | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_86[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_85[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_394[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_396[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_40[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_395[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_397[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_398[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_399[0] | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_43[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_411[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_414[0] | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_416[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_404[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_41[0]  | reset_IBUF       |                3 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_406[0] | reset_IBUF       |                2 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_410[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_412[0] | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_418[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_419[0] | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_413[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_415[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_417[0] | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_48[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_44[0]  | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_46[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_45[0]  | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_50[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_6[0]   | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_52[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_53[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_51[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_54[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_60[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_59[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_62[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_66[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_69[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_63[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_70[0]  | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_67[0]  | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_71[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_73[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_80[0]  | reset_IBUF       |                7 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_83[0]  | reset_IBUF       |                5 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_75[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_76[0]  | reset_IBUF       |                4 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_81[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_84[0]  | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_9[0]   | reset_IBUF       |                6 |              8 |
+|  clkin_IBUF_BUFG      | regfile/storemux_reg[1]_i_1_97[0]  | reset_IBUF       |                5 |              8 |
+|  clkdisplay_IBUF_BUFG |                                    | Smg/clk_400Hz_0  |                8 |             31 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_10[0]  | reset_IBUF       |               18 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_4[0]   | reset_IBUF       |               20 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_33[0]  | reset_IBUF       |               17 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_15[0]  | reset_IBUF       |               13 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_0[0]   | reset_IBUF       |               18 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_17[0]  | reset_IBUF       |               16 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_31[0]  | reset_IBUF       |               17 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_32[0]  | reset_IBUF       |               21 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_5[0]   | reset_IBUF       |               16 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_11[0]  | reset_IBUF       |               21 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_16[0]  | reset_IBUF       |               13 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_1[0]   | reset_IBUF       |               14 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_3[0]   | reset_IBUF       |               14 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_6[0]   | reset_IBUF       |               20 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_13[0]  | reset_IBUF       |               19 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_19[0]  | reset_IBUF       |               23 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_25[0]  | reset_IBUF       |               13 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_24[0]  | reset_IBUF       |               14 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_23[0]  | reset_IBUF       |               18 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_14[0]  | reset_IBUF       |               21 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1[0]     | reset_IBUF       |               16 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_20[0]  | reset_IBUF       |               22 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_21[0]  | reset_IBUF       |               19 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_22[0]  | reset_IBUF       |               12 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_12[0]  | reset_IBUF       |               18 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_2[0]   | reset_IBUF       |               16 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_7[0]   | reset_IBUF       |               15 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_9[0]   | reset_IBUF       |               15 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_8[0]   | reset_IBUF       |               18 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_30[0]  | reset_IBUF       |               17 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/E[0]                       | reset_IBUF       |               14 |             32 |
+|  clkin_IBUF_BUFG      | mainctr/storemux_reg[1]_i_1_18[0]  | reset_IBUF       |               16 |             32 |
+| ~clkin_IBUF_BUFG      |                                    | reset_IBUF       |               18 |             32 |
+|  ExtOp_BUFG           |                                    |                  |               21 |             38 |
+|  clkin_IBUF_BUFG      | mainctr/reset[0]                   | reset_IBUF       |               14 |             64 |
+|  n_0_15257_BUFG       |                                    |                  |               33 |             64 |
++-----------------------+------------------------------------+------------------+------------------+----------------+
 
 

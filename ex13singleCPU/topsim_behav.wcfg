@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1940769fs"></ZoomStartTime>
-      <ZoomEndTime time="2082570fs"></ZoomEndTime>
-      <Cursor1Time time="2060369fs"></Cursor1Time>
+      <ZoomStartTime time="2013676fs"></ZoomStartTime>
+      <ZoomEndTime time="2351677fs"></ZoomEndTime>
+      <Cursor1Time time="2474528fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="140"></NameColumnWidth>
-      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+      <ValueColumnWidth column_width="62"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="117" />
+   <WVObjectSize size="118" />
    <wvobject fp_name="/topsim/uut/alu/shamt" type="array">
       <obj_property name="ElementShortName">shamt[4:0]</obj_property>
       <obj_property name="ObjectShortName">shamt[4:0]</obj_property>
@@ -119,7 +119,6 @@
    <wvobject fp_name="/topsim/uut/regfile/REG_Files" type="array">
       <obj_property name="ElementShortName">REG_Files[0:31][31:0]</obj_property>
       <obj_property name="ObjectShortName">REG_Files[0:31][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/topsim/uut/regfile/hi" type="array">
       <obj_property name="ElementShortName">hi[31:0]</obj_property>
@@ -132,6 +131,10 @@
    <wvobject fp_name="/topsim/uut/regfile/i" type="array">
       <obj_property name="ElementShortName">i[31:0]</obj_property>
       <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topsim/uut/mainctr/syscall" type="logic">
+      <obj_property name="ElementShortName">syscall</obj_property>
+      <obj_property name="ObjectShortName">syscall</obj_property>
    </wvobject>
    <wvobject fp_name="/topsim/uut/aluinput2_i/ext_data" type="array">
       <obj_property name="ElementShortName">ext_data[31:0]</obj_property>
@@ -241,6 +244,10 @@
       <obj_property name="ElementShortName">PC[31:0]</obj_property>
       <obj_property name="ObjectShortName">PC[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/topsim/uut/PCctr1/nextPC" type="array">
+      <obj_property name="ElementShortName">nextPC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">nextPC[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/topsim/uut/PCctr1/CPCadd4" type="array">
       <obj_property name="ElementShortName">CPCadd4[31:0]</obj_property>
       <obj_property name="ObjectShortName">CPCadd4[31:0]</obj_property>
@@ -264,10 +271,6 @@
    <wvobject fp_name="/topsim/uut/PCctr1/extimm" type="array">
       <obj_property name="ElementShortName">extimm[31:0]</obj_property>
       <obj_property name="ObjectShortName">extimm[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/topsim/uut/PCctr1/nextPC" type="array">
-      <obj_property name="ElementShortName">nextPC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">nextPC[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/topsim/uut/PCctr1/muxjump" type="array">
       <obj_property name="ElementShortName">muxjump[31:0]</obj_property>

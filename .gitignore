@@ -84,5 +84,8 @@
 !*.elf
 !*.bmm
 !*.xmp
-!.md
-!.s
+!*.md
+!*.s
+!*.pdf
+!*.py
+!*.vsdx

@@ -12,9 +12,9 @@ top uut (
 initial begin
     // Initialize Inputs 
     reset=0;
-    #1;
+    #25;
     reset = 1;
-    #1;
+    #20;
     reset=0;
     // Wait 100 ns for global reset to finish 
     #20;

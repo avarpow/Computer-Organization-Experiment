@@ -1,0 +1,60 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Thu Dec 17 15:25:31 2020
+# Process ID: 29924
+# Current directory: D:/programme/Computer-Organization-Experiment/ex13singleCPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7616 D:\programme\Computer-Organization-Experiment\ex13singleCPU\ex13singleCPU.xpr
+# Log file: D:/programme/Computer-Organization-Experiment/ex13singleCPU/vivado.log
+# Journal file: D:/programme/Computer-Organization-Experiment/ex13singleCPU\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/programme/Computer-Organization-Experiment/ex13singleCPU/ex13singleCPU.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config D:/programme/Computer-Organization-Experiment/ex13singleCPU/topsim_behav.wcfg
+source topsim.tcl
+close_sim
+launch_simulation
+open_wave_config D:/programme/Computer-Organization-Experiment/ex13singleCPU/topsim_behav.wcfg
+source topsim.tcl
+close_sim
+launch_simulation
+open_wave_config D:/programme/Computer-Organization-Experiment/ex13singleCPU/topsim_behav.wcfg
+source topsim.tcl
+run 400 ns
+run 400 ns
+run 400 ns
+run 400 ns
+run 40 ns
+run 40 ns
+current_wave_config {topsim_behav.wcfg}
+add_wave {{/topsim/uut/mainctr/syscall}} 
+restart
+run 400 ns
+run 400 ns
+run 400 ns
+run 400 ns
+run 400 ns
+run 400 ns
+run 400 ns
+open_hw_manager
+connect_hw_server -url 172.19.58.27:3121 -allow_non_jtag
+current_hw_target [get_hw_targets */xilinx_tcf/Digilent/210183795948A]
+disconnect_hw_server 172.19.58.27:3121
+connect_hw_server -url 172.19.58.27:3121 -allow_non_jtag
+current_hw_target [get_hw_targets */xilinx_tcf/Digilent/210183795948A]
+set_property PARAM.FREQUENCY 15000000 [get_hw_targets */xilinx_tcf/Digilent/210183795948A]
+open_hw_target
+set_property PROGRAM.FILE {D:/programme/Computer-Organization-Experiment/ex13singleCPU/ex13singleCPU.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+create_hw_cfgmem -hw_device [get_hw_devices xc7a35t_0] -mem_dev [lindex [get_cfgmem_parts {s25fl032p-spi-x1_x2_x4}] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/programme/Computer-Organization-Experiment/ex13singleCPU/ex13singleCPU.runs/impl_1/topbackup.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+save_wave_config {D:/programme/Computer-Organization-Experiment/ex13singleCPU/topsim_behav.wcfg}
+close_sim

@@ -7,12 +7,12 @@ module DM( clk, DMWr, DMRd, DMaddr, DMdata, DMout );
     input       [31:0]   DMdata;
     output reg  [31:0]   DMout;
 
-    reg[7:0] RAM [1023:0];
+    reg[7:0] RAM [31:0];
 	
   integer i;
 	initial
 	begin
-		for (i = 0; i < 1023; i = i + 1)
+		for (i = 0; i <= 31; i = i + 1)
         	RAM[i] <= 0;
     DMout <= 32'b0;
 	end

@@ -452,6 +452,18 @@ module ctrl_unit( opcode, func,
               ALUOp   = `ALU_NOP;
               EXTOp   = `signext;
           end
+          6'b111111: begin
+              NPCOp   = 3'bxxx;
+              RegDst  = `Rt;
+              toReg   = `ALU2Reg;
+              RFWr    =  1'b0;
+              DMRd    = `DMRd_NOP;
+              DMWr    = `DMWr_NOP;
+              ALUSrc1 = `reg;
+              ALUSrc2 = `reg;
+              ALUOp   = `ALU_NOP;
+              EXTOp   = `signext;
+          end
               
       endcase
    end // end always

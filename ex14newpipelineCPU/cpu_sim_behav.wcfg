@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2759650fs"></ZoomStartTime>
-      <ZoomEndTime time="3987534fs"></ZoomEndTime>
-      <Cursor1Time time="2685325fs"></Cursor1Time>
+      <ZoomStartTime time="1939895fs"></ZoomStartTime>
+      <ZoomEndTime time="2902681fs"></ZoomEndTime>
+      <Cursor1Time time="2780231fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="128"></NameColumnWidth>
+      <NameColumnWidth column_width="140"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="146" />
+   <WVObjectSize size="121" />
    <wvobject fp_name="/cpu_sim/cpu1/PC/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -68,6 +68,24 @@
       <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/cpu_sim/cpu1/IF_ID/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_sim/cpu1/IF_ID/ins" type="array">
+      <obj_property name="ElementShortName">ins[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ins[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_sim/cpu1/IF_ID/IFID_pc" type="array">
+      <obj_property name="ElementShortName">IFID_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IFID_pc[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
    <wvobject fp_name="/cpu_sim/cpu1/IF_ID/IFID_ins" type="array">
       <obj_property name="ElementShortName">IFID_ins[31:0]</obj_property>
       <obj_property name="ObjectShortName">IFID_ins[31:0]</obj_property>
@@ -78,12 +96,6 @@
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
       <obj_property name="CustomSignalColor">#F0E68C</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/IF_ID/IFID_pc" type="array">
-      <obj_property name="ElementShortName">IFID_pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">IFID_pc[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_sim/cpu1/ID_EXE/rst" type="logic">
@@ -155,6 +167,12 @@
    <wvobject fp_name="/cpu_sim/cpu1/ID_EXE/RegDst" type="array">
       <obj_property name="ElementShortName">RegDst[1:0]</obj_property>
       <obj_property name="ObjectShortName">RegDst[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_sim/cpu1/ID_EXE/NPCOp" type="array">
+      <obj_property name="ElementShortName">NPCOp[2:0]</obj_property>
+      <obj_property name="ObjectShortName">NPCOp[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#F0E68C</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -715,155 +733,5 @@
       <obj_property name="ObjectShortName">DMdata_ctrl</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/rst" type="logic">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/RFWr" type="logic">
-      <obj_property name="ElementShortName">RFWr</obj_property>
-      <obj_property name="ObjectShortName">RFWr</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/A1" type="array">
-      <obj_property name="ElementShortName">A1[4:0]</obj_property>
-      <obj_property name="ObjectShortName">A1[4:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/A2" type="array">
-      <obj_property name="ElementShortName">A2[4:0]</obj_property>
-      <obj_property name="ObjectShortName">A2[4:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/A3" type="array">
-      <obj_property name="ElementShortName">A3[4:0]</obj_property>
-      <obj_property name="ObjectShortName">A3[4:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/WD" type="array">
-      <obj_property name="ElementShortName">WD[31:0]</obj_property>
-      <obj_property name="ObjectShortName">WD[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/RD1" type="array">
-      <obj_property name="ElementShortName">RD1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">RD1[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/RD2" type="array">
-      <obj_property name="ElementShortName">RD2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">RD2[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/RF/rf" type="array">
-      <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/DM/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/DM/DMWr" type="array">
-      <obj_property name="ElementShortName">DMWr[1:0]</obj_property>
-      <obj_property name="ObjectShortName">DMWr[1:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/DM/DMRd" type="array">
-      <obj_property name="ElementShortName">DMRd[3:0]</obj_property>
-      <obj_property name="ObjectShortName">DMRd[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/DM/DMaddr" type="array">
-      <obj_property name="ElementShortName">DMaddr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">DMaddr[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/DM/DMdata" type="array">
-      <obj_property name="ElementShortName">DMdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">DMdata[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/DM/DMout" type="array">
-      <obj_property name="ElementShortName">DMout[31:0]</obj_property>
-      <obj_property name="ObjectShortName">DMout[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/DM/RAM" type="array">
-      <obj_property name="ElementShortName">RAM[31:0][7:0]</obj_property>
-      <obj_property name="ObjectShortName">RAM[31:0][7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/DM/i" type="array">
-      <obj_property name="ElementShortName">i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">i[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/d0" type="array">
-      <obj_property name="ElementShortName">d0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">d0[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/d1" type="array">
-      <obj_property name="ElementShortName">d1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">d1[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/s" type="logic">
-      <obj_property name="ElementShortName">s</obj_property>
-      <obj_property name="ObjectShortName">s</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/y" type="array">
-      <obj_property name="ElementShortName">y[31:0]</obj_property>
-      <obj_property name="ObjectShortName">y[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/WIDTH" type="array">
-      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/d0" type="array">
-      <obj_property name="ElementShortName">d0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">d0[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/d1" type="array">
-      <obj_property name="ElementShortName">d1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">d1[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/s" type="logic">
-      <obj_property name="ElementShortName">s</obj_property>
-      <obj_property name="ObjectShortName">s</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/y" type="array">
-      <obj_property name="ElementShortName">y[31:0]</obj_property>
-      <obj_property name="ObjectShortName">y[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/cpu_sim/cpu1/ALUSrc_B/WIDTH" type="array">
-      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
    </wvobject>
 </wave_config>

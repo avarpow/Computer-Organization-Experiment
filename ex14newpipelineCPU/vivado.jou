@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Wed Jan  6 10:34:29 2021
+# Process ID: 1428
+# Current directory: D:/programme/Computer-Organization-Experiment/ex14pipelineCPUrename
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7004 D:\programme\Computer-Organization-Experiment\ex14pipelineCPUrename\ex14pipelineCPU.xpr
+# Log file: D:/programme/Computer-Organization-Experiment/ex14pipelineCPUrename/vivado.log
+# Journal file: D:/programme/Computer-Organization-Experiment/ex14pipelineCPUrename\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/programme/Computer-Organization-Experiment/ex14pipelineCPUrename/ex14pipelineCPU.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+launch_simulation
+launch_simulation
+open_wave_config D:/programme/Computer-Organization-Experiment/ex14pipelineCPUrename/cpu_sim_behav.wcfg
+source cpu_sim.tcl
+run 2000 ns
+run 2000 ns
+run 2000 ns
+run 2000 ns
+run 2000 ns
+run 2000 ns
+run 2000 ns
+export_ip_user_files -of_objects  [get_files D:/programme/Computer-Organization-Experiment/ex14pipelineCPUrename/ex14pipelineCPU.srcs/sources_1/new/ctrl_encode_def.v] -no_script -reset -force -quiet
+remove_files  D:/programme/Computer-Organization-Experiment/ex14pipelineCPUrename/ex14pipelineCPU.srcs/sources_1/new/ctrl_encode_def.v
+close_sim

@@ -1,0 +1,25 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/DM.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/EXE_MEM.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/EXT.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/ForwardingUnit.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/Hazard.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/ID_EXE.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/IF_ID.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/IM.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/MEM_WB.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/NPC.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/PC.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/RF.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/alu.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/cpu.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/ctrl_unit.v" \
+"../../../../ex14pipelineCPU.srcs/sources_1/new/mux.v" \
+"../../../../ex14pipelineCPU.srcs/sim_1/new/cpu_sim.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

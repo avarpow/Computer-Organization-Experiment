@@ -36,7 +36,7 @@ module NPC( clk, pc, NPCOp, IMM, Rt, RD1, RD2, npc );  // next pc module
                     5'b00001: npc = (RD1 == 0 || RD1[31] == 0) ? (PCPLUS4 + {{14{IMM[15]}}, IMM[15:0], 2'b00}) : (PCPLUS4); 
                 endcase
           end
-          default:     npc = PCPLUS4;
+          default:     npc = pc;
       endcase
    end // end always
    
